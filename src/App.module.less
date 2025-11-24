@@ -1,0 +1,218 @@
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  --header-height: 96px;
+  --statusbar-height: 88;
+}
+
+.content {
+  width: 750px;
+  padding-top: calc(var(--statusbar-height) / 2 * 2px + var(--header-height) + 42px);
+  background: #302bc9 url(./assets/bg.webp) 50% 0/750px 1150px no-repeat;
+}
+
+.contenttransformed {
+  // position: absolute;
+  // top: -100%;
+  // left: -100%;
+  padding-top: 73px;
+  background-position: 50% -calc(var(--statusbar-height) / 2 * 2px);
+  transform: translateZ(0);
+
+  .bottom {
+    margin-top: 0;
+  }
+}
+
+.top {
+  width: 650px;
+  margin: 0 auto;
+}
+
+.welcome,
+.congratulation {
+  height: 94px;
+  background: url(./assets/welcome.webp) 0 50% / 364px 94px no-repeat;
+}
+
+.congratulation {
+  background-image: url(./assets/congratulation.webp);
+  background-size: 379px 93px;
+}
+
+.namewrap {
+  display: flex;
+  align-items: center;
+  width: 364px;
+  height: 52px;
+  padding: 0 8px 0 172px;
+  margin-top: 22px;
+  background: url(./assets/nickname.webp) 0 50% / 364px 52px no-repeat;
+}
+
+.nickname {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  font-size: 28px;
+  font-weight: 600;
+  color: #cb2f51;
+}
+
+.role {
+  height: 32px;
+  padding-left: 8px;
+  line-height: 32px;
+  margin: 10px 0 -26px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.loginbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 184px;
+  height: 52px;
+  margin-top: 37px;
+  background: url(./assets/login.webp) 50% 50% / 184px 52px no-repeat;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 600;
+  color: #cb2f51;
+}
+
+.join,
+.gotreward {
+  height: 195px;
+  margin-top: 60px;
+  background: url(./assets/join.webp) 0 50% / 520px 195px no-repeat;
+  font-size: 0;
+}
+
+.gotreward {
+  background-image: url(./assets/gotreward.webp);
+  background-size: 518px 195px;
+}
+
+.rewards {
+  position: relative;
+  z-index: 1;
+  width: 650px;
+  height: 467px;
+  margin-top: 24px;
+  background: url(./assets/rewardbg.webp) 0 50% / 650px 467px no-repeat;
+  transform: translateZ(0);
+}
+
+.bigloginbtn,
+.getreward,
+.got {
+  width: 650px;
+  height: 88px;
+  margin-top: 24px;
+  background: url(./assets/biglogin.webp) 50% 50% / 680px 88px no-repeat;
+  font-size: 0;
+}
+
+.bigloginbtn {
+  cursor: pointer;
+}
+
+.getreward {
+  background-image: url(./assets/getreward.webp);
+  background-size: 650px 88px;
+  cursor: pointer;
+}
+
+.got {
+  background-image: url(./assets/got.webp);
+  background-size: 650px 88px;
+}
+
+.ungot {
+  height: 88px;
+  line-height: 88px;
+  margin-top: 26px;
+  text-align: center;
+  color: #fff;
+}
+
+.goroom {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+}
+
+.bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 61px 0 34px;
+  margin-top: 29px;
+}
+
+.bottombg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 750px;
+  height: 322px;
+  background: url(./assets/bottombg.webp) 50% 0 / 750px 322px no-repeat;
+}
+
+.qrwrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 22px;
+}
+
+.qrcode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border: 3px solid #9ac1ff;
+  background: #fff;
+
+  svg,
+  canvas {
+    width: 152px !important;
+    height: 152px !important;
+  }
+}
+
+.qrtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 229px;
+  height: 32px;
+  margin-top: 16px;
+  background: url(./assets/qrtextbg.webp) 50% 50% / 229px 32px no-repeat;
+  font-size: 20px;
+  color: #fff;
+}
+
+.snapdom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 50px;
+  background: red;
+  font-size: 24px;
+  cursor: pointer;
+}

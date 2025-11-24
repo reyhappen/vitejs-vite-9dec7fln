@@ -1,0 +1,296 @@
+/* 最大化减少各端emoji差异性 */
+@font-face {
+  font-family: Emoji;
+  src: local('Apple Color Emojiji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji');
+  unicode-range: U+1F000-1F644, U+203C-3299;
+}
+
+// 字体有点大，使用[FontForge](https://fontforge.github.io/en-US/)裁切一下
+@font-face {
+  font-family: 'ddin';
+  src: url('./assets/fonts/D-DIN-PRO-700-Bold.otf');
+}
+
+.specialfontnumber {
+  font-family: 'ddin';
+}
+
+// .primarycolor {
+//   color: #FF5D23;
+// }
+
+html {
+  line-height: 1.6; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Emoji, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Microsoft Yahei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  --statusbar-height: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+em,
+i {
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+div,
+span,
+a {
+  box-sizing: border-box;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.6; /* 1 */
+  margin: 0; /* 2 */
+}
+
+textarea {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+a {
+  // 阻止长按弹出链接菜单
+  -webkit-touch-callout: none;
+}
+
+img,
+video {
+  object-fit: contain;
+  overflow: hidden;
+  /* iOS 16+ ⚠️有时不能阻止 Apple 后续加强了用户可保存图片的「自由」 */
+  // 阻止长按保存图片或弹出图片菜单
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  // !⚠️禁止全局添加
+  // pointer-events: none; /* 禁止点击事件，需要在业务处自行添加，不要全局加 */
+}
+
+/* svg根据字体大小变化尺寸，与文字排列时方便对齐 */
+svg {
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+}
+
+html,
+body,
+#root {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 24px;
+  color: #333;
+  background: #1C0D97;
+  transform: translateZ(0);
+}
+
+#root {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.defaultloading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+/* 衬线字体 */
+.font-serif {
+  font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* 等宽字体 */
+.font-mono {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.Toast {
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 10000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.Toast-content {
+  padding: 10px 44px;
+  box-sizing: border-box;
+  min-width: 184px;
+  max-width: 80%;
+  line-height: 44px;
+  border-radius: 12px;
+  font-size: 24px;
+  // font-weight: 700;
+  text-align: center;
+  word-break: break-all;
+  color: #fffde5;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation: toastfadeIn 0.3s;
+}
+
+// 伴侣会调用js插入`::-webkit-scrollbar display: none`导致带自定义滚动条的边距不正常
+.Mate *::-webkit-scrollbar {
+  display: block !important;
+}
+
+// *::-webkit-scrollbar {
+//   width: 3px;
+// }
+
+// *::-webkit-scrollbar-thumb {
+//   border-radius: 3px;
+//   background-color: rgba(255, 255, 255, 0.3) !important;
+// }
+
+// #root {
+//     scrollbar-color: #ddd #1c153d;
+//     scrollbar-width: thin;
+// }
+
+:root {
+  --header-height: 90;
+}
+
+.breathing {
+  animation: breathing 1s infinite linear;
+}
+
+@keyframes breathing {
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toastfadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, 150%);
+    transform-origin: 50% 50%;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -10%);
+    transform-origin: 50% 50%;
+  }
+}
+
+.popfadein {
+  animation: popfadein 0.3s linear;
+}
+
+@keyframes popfadein {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.popxy50fadein {
+  animation: popxy-50fadein 0.3s linear;
+}
+
+@keyframes popxy-50fadein {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.slideup {
+  animation: slideup 0.3s linear;
+}
+
+@keyframes slideup {
+  0% {
+    transform: translate(0, 100%);
+  }
+
+  100% {
+    transform: translate(0, 0%);
+  }
+}
+
+.fadeout1s {
+  animation: fadeout1s 1s linear forwards;
+}
+
+@keyframes fadeout1s {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

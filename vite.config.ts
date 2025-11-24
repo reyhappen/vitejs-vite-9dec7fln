@@ -16,7 +16,6 @@ export default defineConfig({
     },
   },
   build: {
-    // 保证css顺序
     // cssCodeSplit: true,
     reportCompressedSize: true,
     manifest: true,
