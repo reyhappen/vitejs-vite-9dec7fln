@@ -8,22 +8,18 @@
 }
 
 .content {
+  position: relative;
   width: 750px;
   padding-top: calc(var(--statusbar-height) / 2 * 2px + var(--header-height) + 42px);
   background: #302bc9 url(./assets/bg.webp) 50% 0/750px 1150px no-repeat;
 }
 
-.contenttransformed {
-  // position: absolute;
-  // top: -100%;
-  // left: -100%;
-  padding-top: 73px;
-  background-position: 50% -calc(var(--statusbar-height) / 2 * 2px);
-  transform: translateZ(0);
-
-  .bottom {
-    margin-top: 0;
-  }
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
 }
 
 .top {
@@ -98,14 +94,17 @@
   background-size: 518px 195px;
 }
 
-.rewards {
+.rewards,
+.rewardsimg {
   position: relative;
   z-index: 1;
   width: 650px;
   height: 467px;
   margin-top: 24px;
+}
+
+.rewards {
   background: url(./assets/rewardbg.webp) 0 50% / 650px 467px no-repeat;
-  transform: translateZ(0);
 }
 
 .bigloginbtn,
@@ -203,16 +202,22 @@
   color: #fff;
 }
 
-.snapdom {
-  position: absolute;
+.snapdombg,
+.snapdomimg {
+  position: fixed;
   top: 0;
   right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 200px;
   height: 50px;
   background: red;
   font-size: 24px;
   cursor: pointer;
+}
+
+.snapdomimg {
+  top: 70px;
 }
