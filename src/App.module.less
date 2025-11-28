@@ -10,7 +10,9 @@
 .content {
   position: relative;
   width: 750px;
-  padding-top: calc(var(--statusbar-height) / 2 * 2px + var(--header-height) + 42px);
+  padding-top: calc(
+    var(--statusbar-height) / 2 * 2px + var(--header-height) + 42px
+  );
   background: #302bc9 url(./assets/bg.webp) 50% 0/750px 1150px no-repeat;
 }
 
@@ -206,18 +208,21 @@
 .snapdomimg {
   position: fixed;
   top: 0;
-  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 200px;
-  height: 50px;
+  height: 80px;
   background: red;
   font-size: 24px;
   cursor: pointer;
 }
 
+.snapdombg {
+  right: 0;
+}
+
 .snapdomimg {
-  top: 70px;
+  left: 0;
 }

@@ -31,8 +31,8 @@ function App() {
       // excludeMode: 'remove',
       // exclude: [`.${styles.got}`, `.${styles.getreward}`, `.${styles.bottombg}`, `.${styles.btns}`, '[data-capture="exclude"]'],
       backgroundColor: '#302BC9',
-      // cache: 'disabled', // 禁用缓存确保资源正确加载
-      // fast: false, // 禁用快速模式,给资源更多加载时间
+      cache: 'disabled', // 禁用缓存确保资源正确加载
+      fast: false, // 禁用快速模式,给资源更多加载时间
     });
   }, []);
   const generateUsingBg = useCallback(() => {
